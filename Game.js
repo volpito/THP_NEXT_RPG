@@ -8,3 +8,5 @@ class Game {
   }
 }
 
+const fighters = [player1, player2, player3]
+
