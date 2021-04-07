@@ -9,5 +9,7 @@ class Paladin extends Character {
 
 const player1 = new Paladin("Michel");
 const player2 = new Paladin("Micheline", 10, 1);
+const player3 = new Paladin("DUCON", 100, 6);
 
+let fighters = [player1, player2, player3];
 
