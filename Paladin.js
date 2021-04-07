@@ -8,6 +8,6 @@ class Paladin extends Character {
 }
 
 const player1 = new Paladin("Michel");
-const player2 = new Paladin("Micheline");
+const player2 = new Paladin("Micheline", 10, 1);
 
 
