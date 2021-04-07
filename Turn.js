@@ -7,11 +7,14 @@ class Turn extends Game {
   }
 
   fight = (firstPlayer, secondPlayer) => {
+    
     secondPlayer.hp = secondPlayer.hp - firstPlayer.dmg;
     firstPlayer.hp = firstPlayer.hp - secondPlayer.dmg;
     this.turnCount++;
+    console.log(`Round numéro ${this.turnCount}`)
     console.log(`${firstPlayer.name} inflige ${firstPlayer.dmg} de dégats à ${secondPlayer.name} à qui il reste ${secondPlayer.hp} de hp`);
     console.log(`${secondPlayer.name} inflige ${secondPlayer.dmg} de dégats à ${firstPlayer.name} à qui il reste ${firstPlayer.hp} de hp`);
+    
 }
 }
 
