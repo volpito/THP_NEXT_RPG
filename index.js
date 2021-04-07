@@ -1,0 +1,1 @@
+const game1 = new Game (player1, player2);
