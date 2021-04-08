@@ -31,10 +31,9 @@ class Turn extends Game {
       const others = fighter.filter(e => e.name != foo);
       
       if (foo == fighters[0].name || foo == fighters[1].name || foo == fighters[2].name || foo == fighters[3].name || foo == fighters[4].name) {
-        
-        console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
+      
         perso.dealDamage(victime[0]);
-        console.log(victime[0].name + " a désormais " + victime[0].hp + " HP ! BIM")
+        
         if (victime[0].hp <= 0){
           victime[0].status = "loser";
           console.log(`${victime[0].name} est mort !`)
@@ -43,7 +42,7 @@ class Turn extends Game {
             console.log(perso.name + " a remporté le match !")
           }
         }
-        if (this.turnLeft == 0){
+        if (this.turnLeft == 1){
           const winner = fighter.sort((a, b) => b.hp - a.hp)[0];
           console.log("")
           console.log(winner.name + " a remporté la partie avec " + winner.hp + "HP ! Bravo a lui");
@@ -52,11 +51,16 @@ class Turn extends Game {
       else{
         console.log("ERREUR mauvais nom de joueur, vous avez gâché un tour...");
       }
+      let stat = prompt(`Voulez vous voir les Stats des joueurs ? Ecrivez "Stat" ou appuyer sur Entrer`);
+      if (stat == "Stat"){
+        gaming.watchStats();
+        }
     }  
   }
   
 
   const gaming = new Turn();
-  for(i = 0; i <= 10; i++){
+  for(i = 0; i <= 9; i++){
+    
     gaming.newTurn();
   }

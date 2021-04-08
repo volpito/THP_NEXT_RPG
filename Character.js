@@ -19,6 +19,8 @@ class Character {
   dealDamage = (victim) => {
     if (this.status != "loser"){
       victim.takeDamage(this.dmg);
+      console.log(`Attaque éclair de ${this.name} de ${this.dmg} sur la victime ${victim.name}`)
+      console.log(victim.name + " a désormais " + victim.hp + " HP ! BIM")
     }
   }
 }
