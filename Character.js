@@ -11,11 +11,14 @@ class Character {
     if (this.hp > 0){
       this.hp = this.hp - damage;
     } else {
-      console.log(`vous ne pouvez pas taper ${this.name} car il a été tué`)
+      //this.status = "loser";
+      console.log(`Vous ne pouvez pas taper ${this.name} car il a été tué`)
     }
   }
 
   dealDamage = (victim) => {
-    victim.takeDamage(this.dmg);
+    if (this.status != "loser"){
+      victim.takeDamage(this.dmg);
+    }
   }
 }
