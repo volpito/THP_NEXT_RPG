@@ -26,30 +26,37 @@ class Turn extends Game {
 
 //Conditions de mise en place d'un attaquant et d'une victime
 
-      let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);
-      
-      console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
-      
+      let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);      
       let victime = fighter.filter(d => d.name == foo);
       const others = fighter.filter(e => e.name != foo);
-
+      
+      if (foo == fighters[0].name || foo == fighters[1].name || foo == fighters[2].name || foo == fighters[3].name || foo == fighters[4].name) {
+        
+        console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
         perso.dealDamage(victime[0]);
         console.log(victime[0].name + " a désormais " + victime[0].hp + " HP ! BIM")
         if (victime[0].hp <= 0){
           victime[0].status = "loser";
           console.log(`${victime[0].name} est mort !`)
-//$$$$$$$$$$$$$$$$ rajoute une boucle ici avec un [i] < others.length ? $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-          if (others[0].hp <= 0 || others[1].hp <= 0){
-            
+
+          if (others[0].hp <= 0 && others[1].hp <= 0 && others[2].hp <= 0 && others[3].hp <= 0) {
+            console.log(perso.name + " a remporté le match !")
           }
         }
-      
+        if (this.turnLeft == 0){
+          const winner = fighter.sort((a, b) => b.hp - a.hp)[0];
+          console.log("")
+          console.log(winner.name + " a remporté la partie avec " + winner.hp + "HP ! Bravo a lui");
+        }
       }
-      
+      else{
+        console.log("ERREUR mauvais nom de joueur, vous avez gâché un tour...");
+      }
+    }  
   }
   
 
   const gaming = new Turn();
-  for(i = 0; i < 10; i++){
-  gaming.newTurn();
+  for(i = 0; i <= 10; i++){
+    gaming.newTurn();
   }

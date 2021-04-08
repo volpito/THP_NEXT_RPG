@@ -5,4 +5,4 @@ class Berzerker extends Character {
   }
 }
 
-const player4 = new Berzerker("Draven");
+const berzerker = new Berzerker("Draven");

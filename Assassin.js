@@ -5,4 +5,4 @@ class Assassin extends Character {
   }
 }
 
-const player5 = new Assassin("Carl");
+const assassin = new Assassin("Carl");
