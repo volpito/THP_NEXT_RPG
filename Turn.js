@@ -7,10 +7,13 @@ class Turn extends Game {
   }
 
   fight = (paladin, fighter, monk) => {
-    for(this.turnCount = 1; this.turnCount <= 2;this.turnCount++){
-      let perso = fighters[Math.floor(Math.random() * fighters.length)];
+    for(this.turnCount = 1; this.turnCount <= 10;this.turnCount++){
 
-      const pick = fighters.filter(c => c.name != perso.name && c.status != "loser");
+      const fighter = fighters.filter(a => a.status != "loser");
+
+      let perso = fighter[Math.floor(Math.random() * fighter.length)];
+
+      const pick = fighter.filter(c => c.name != perso.name && c.status != "loser");
       
       const name = pick.map(a => a.name);
       
@@ -21,12 +24,29 @@ class Turn extends Game {
       console.log(`Choisi ta prochaine victime: ${name} ?`);
       console.log("")
 
+//Conditions de mise en place d'un attaquant et d'une victime
+
       let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);
+      
       console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
-      let victime = fighters.filter(d => d.name == foo);
-      perso.dealDamage(victime[0]);
-    
-    }}}
+      
+      let victime = fighter.filter(d => d.name == foo);
+      const others = fighter.filter(e => e.name != foo);
+
+        perso.dealDamage(victime[0]);
+        console.log(victime[0].name + " a désormais " + victime[0].hp + " HP ! BIM")
+        if (victime[0].hp <= 0){
+          victime[0].status = "loser";
+          console.log(`${victime[0].name} est mort !`)
+//$$$$$$$$$$$$$$$$ rajoute une boucle ici avec un [i] < others.length ? $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+          if (others[0].hp <= 0 || others[1].hp <= 0){
+            break;
+          }
+        }
+      }
+    }
+  }
+
       
       /*if (game1.firstPlayer.name == foo){
 
