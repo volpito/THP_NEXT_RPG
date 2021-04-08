@@ -21,14 +21,17 @@ class Turn extends Game {
       console.log(`Choisi ta prochaine victime: ${name} ?`);
       console.log("")
 
-      
-      perso.dealDamage(victime);
+      let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);
+      console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
+      let victime = fighters.filter(d => d.name == foo);
+      perso.dealDamage(victime[0]);
+    
+    }}}
       
       /*if (game1.firstPlayer.name == foo){
 
 //Conditions de sélection d'un joueur à attaquer
-      let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);
-      console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
+     
       if (game1.firstPlayer.name == foo && game1.firstPlayer.status != "loser"){
 
           firstPlayer.hp = firstPlayer.hp - perso.dmg;
