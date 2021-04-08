@@ -1,13 +1,13 @@
 //Bienvenue dans notre RPG maison !
 
 class Turn extends Game {
-  constructor(turnCount, firstPlayer = player1, secondPlayer = player2, thirdPlayer = player3) {
-    super(firstPlayer, secondPlayer, thirdPlayer)
+  constructor(turnCount, paladin, fighter, monk) {
+    super(paladin, fighter, monk)
     this.turnCount = turnCount
   }
 
-  fight = (firstPlayer, secondPlayer, thirdPlayer) => {
-    for(this.turnCount = 1; this.turnCount <= 10;this.turnCount++){
+  fight = (paladin, fighter, monk) => {
+    for(this.turnCount = 1; this.turnCount <= 2;this.turnCount++){
       let perso = fighters[Math.floor(Math.random() * fighters.length)];
 
       const pick = fighters.filter(c => c.name != perso.name && c.status != "loser");
@@ -20,10 +20,17 @@ class Turn extends Game {
       console.log(`Pour ce tour tu vas incarner ${perso.name}`);
       console.log(`Choisi ta prochaine victime: ${name} ?`);
       console.log("")
+
+      
+      perso.dealDamage(victime);
+      
+      /*if (game1.firstPlayer.name == foo){
+
 //Conditions de sélection d'un joueur à attaquer
       let foo = prompt(`Quel combattant choisis-tu d attaquer ? ${name} ?`);
       console.log(`Attaque éclair de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
       if (game1.firstPlayer.name == foo && game1.firstPlayer.status != "loser"){
+
           firstPlayer.hp = firstPlayer.hp - perso.dmg;
           console.log("Ulder a désormais " + firstPlayer.hp + "HP ! BIM")
       }
@@ -53,12 +60,14 @@ class Turn extends Game {
         }
       }
       if (thirdPlayer.hp <= 0){
+
         console.log(`${thirdPlayer.name} est mort !`)
         thirdPlayer.status = "loser";
         if (secondPlayer.hp <= 0 || firstPlayer.hp <= 0){
           break;
         }
       }
+
     }
   }
 }

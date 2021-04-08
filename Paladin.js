@@ -7,7 +7,7 @@ class Paladin extends Character {
   }
 }
 
-const player1 = new Paladin("Ulder");
+const paladin = new Paladin("Ulder");
 
 
 

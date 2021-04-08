@@ -5,4 +5,4 @@ class Monk extends Character {
   }
 }
 
-const player3 = new Monk("Moana");
+const monk = new Monk("Moana");

@@ -5,4 +5,4 @@ class Fighter extends Character {
   }
 }
 
-const player2 = new Fighter("Grace");
+const fighter = new Fighter("Grace");
