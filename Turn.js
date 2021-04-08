@@ -1,13 +1,13 @@
 //Bienvenue dans notre RPG maison !
 
 class Turn extends Game {
-  constructor(turnCount, firstPlayer = player1, secondPlayer = player2, thirdPlayer = player3) {
-    super(firstPlayer, secondPlayer, thirdPlayer)
+  constructor(turnCount, paladin, fighter, monk) {
+    super(paladin, fighter, monk)
     this.turnCount = turnCount
   }
 
-  fight = (firstPlayer, secondPlayer, thirdPlayer) => {
-    for(this.turnCount = 1; this.turnCount <= 10;this.turnCount++){
+  fight = (paladin, fighter, monk) => {
+    for(this.turnCount = 1; this.turnCount <= 2;this.turnCount++){
       let perso = fighters[Math.floor(Math.random() * fighters.length)];
 
       const pick = fighters.filter(c => c.name != perso.name);
@@ -23,7 +23,11 @@ class Turn extends Game {
 
       let foo = prompt(`Quel combattant choisissez-vous d attaquer ? ${name[0]} ou ${name[1]} ?`);
       console.log(`Attaque éclaire de ${perso.name} de ${perso.dmg} sur la victime ${foo}`)
-      if (game1.firstPlayer.name == foo){
+      const victime = fighters.filter(d => d.name == foo);
+      
+      perso.dealDamage(victime);
+      
+      /*if (game1.firstPlayer.name == foo){
           firstPlayer.hp = firstPlayer.hp - perso.dmg;
           console.log("Ulder a désormais " + firstPlayer.hp + "HP ! BIM")
       }
@@ -49,7 +53,7 @@ class Turn extends Game {
       if (thirdPlayer.hp <= 0){
         console.log("PLayer 3 Dead")
         break;
-      }
+      } */
     
     }
 }

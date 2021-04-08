@@ -1,12 +1,12 @@
 //Bienvenue dans notre RPG maison !
 
 class Game {
-  constructor(firstPlayer, secondPlayer, thirdPlayer) {
-    this.firstPlayer = firstPlayer;
-    this.secondPlayer = secondPlayer;
-    this.thirdPlayer = thirdPlayer;
+  constructor(paladin, fighter, monk) {
+    this.paladin = paladin;
+    this.fighter = fighter;
+    this.monk = monk;
   }
 }
 
-const fighters = [player1, player2, player3]
+const fighters = [paladin, fighter, monk]
 
