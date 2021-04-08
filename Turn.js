@@ -45,11 +45,11 @@ class Turn extends Game {
         if (this.turnLeft == 1){
           const winner = fighter.sort((a, b) => b.hp - a.hp)[0];
           console.log("")
-          console.log(winner.name + " a remporté la partie avec " + winner.hp + "HP ! Bravo a lui ❤️❤️");
+          console.log(winner.name + " a remporté la partie avec " + winner.hp + "HP ! Bravo a lui 🏆🏆");
         }
       }
       else{
-        console.log("ERREUR mauvais nom de joueur, vous avez gâché un tour...");
+        console.log("🙈🙉🙊 ERREUR mauvais nom de joueur, vous avez gâché un tour... 🙈🙉🙊");
       }
       let stat = prompt(`Voulez vous voir les Stats des joueurs ? Ecrivez "Stat" ou appuyer sur Entrer`);
       if (stat == "Stat"){
