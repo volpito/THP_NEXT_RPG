@@ -1,8 +1,8 @@
 //Bienvenue dans notre RPG maison !
 
 class Turn extends Game {
-  constructor(turnLeft, paladin, fighter, monk) {
-    super(paladin, fighter, monk, turnLeft)
+  constructor(turnLeft, paladin, fighter, monk, assassin, berzerker) {
+    super(paladin, fighter, monk, assassin, berzerker,turnLeft)
   }
 
 
@@ -15,11 +15,12 @@ class Turn extends Game {
       console.log(`Round numéro ${this.turnLeft}`)
       console.log("")
 
-      for(let i = 0; i < 5; i++){
-        
-      let perso = fighter[i];
       
-      if (perso.status != "playing"){
+      for(let i = 0; i < fighter.length; i++){
+        
+        let perso = fighter[i];
+      
+      if (perso.status !== "playing"){
         break;
       }
       
@@ -27,20 +28,23 @@ class Turn extends Game {
       
       const name = pick.map(a => a.name);
       
-      
+      console.log("")
       console.log(`Pour ce tour tu vas incarner ${perso.name}`);
       console.log(`Choisi ta prochaine victime: ${name} ?`);
       console.log("")
 
 //Conditions de mise en place d'un attaquant et d'une victime
-
+      let special = prompt(`${perso.name} Veux-tu utiliser ton attaque spécial ? Tape "special"`); 
       let foo = prompt(`${perso.name} Quel combattant choisis-tu d attaquer ? ${name} ?`);      
       let victime = fighter.filter(d => d.name == foo);
       const others = fighter.filter(e => e.name != foo);
       
-      
+      if(special == "special"){
+        perso.specialAttack();
+        console.log(`${perso.name} choisi son attaque spécial`)
+      }
       if (foo == fighters[0].name || foo == fighters[1].name || foo == fighters[2].name || foo == fighters[3].name || foo == fighters[4].name) {
-        
+
         perso.dealDamage(victime[0]);
         
         if (victime[0].hp <= 0){
@@ -57,6 +61,7 @@ class Turn extends Game {
         }
       }
       else{
+        console.log(" ")
         console.log("🙈🙉🙊 ERREUR mauvais nom de joueur, vous avez gâché un tour... 🙈🙉🙊");
       }
       let stat = prompt(`Voulez vous voir les Stats des joueurs ? Ecrivez "Stat" ou appuyer sur Entrer`);
@@ -65,6 +70,7 @@ class Turn extends Game {
         }
         
       } 
+      
       
   }
 }
@@ -77,7 +83,7 @@ class Turn extends Game {
     const winner = fighters.filter(a => a.status == "playing")[0];
     if(looser.length === 4){
       console.log(winner.name + " a remporté le match !")
-      break
+      break;
     } else {
     gaming.newTurn();
     }
