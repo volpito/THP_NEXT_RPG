@@ -34,7 +34,7 @@ class Turn extends Game {
       console.log("")
 
 //Conditions de mise en place d'un attaquant et d'une victime
-      let special = prompt(`${perso.name} Veux-tu utiliser ton attaque spécial ? Tape "special"`); 
+      let special = prompt(`${perso.name} Veux-tu utiliser ton attaque spécial ? Tape "special" ou appuie sur entrer pour une attaque normal`); 
       let foo = prompt(`${perso.name} Quel combattant choisis-tu d attaquer ? ${name} ?`);      
       let victime = fighter.filter(d => d.name == foo);
       const others = fighter.filter(e => e.name != foo);
